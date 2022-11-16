@@ -1,0 +1,1054 @@
+#################################################################################################
+################################## LOGISTIC REGRESSION ANALYSES #################################
+#################################################################################################
+model <- with(imputed.data2, glm(planned ~ ageM, contrasts = list(ageM="contr.treatment"(5, base = 4)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ageM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ageF, contrasts = list(ageF="contr.treatment"(5, base = 4)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ageF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ethniM, contrasts = list(ethniM="contr.treatment"(10, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ethniM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ethniF, contrasts = list(ethniF="contr.treatment"(10, base = 1)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ethniF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ educM, contrasts = list(educM="contr.treatment"(4, base = 4)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\educM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ educP, contrasts = list(educP="contr.treatment"(4, base = 4)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\educP.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ jobM, contrasts = list(jobM="contr.treatment"(2, base = 2)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\NojobM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ jobF, contrasts = list(jobF="contr.treatment"(2, base = 2)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\NojobF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ income, contrasts = list(income="contr.treatment"(3, base = 3)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Income.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ financedif, contrasts = list(financedif="contr.treatment"(3, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Financedif.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ religionM, contrasts = list(religionM="contr.treatment"(5, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Religion.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ maritalstatus, contrasts = list(maritalstatus="contr.treatment"(3, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Maritalstatus.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ parity, contrasts = list(parity="contr.treatment"(4, base = 2)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\parity.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ CTQ, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\CTQ.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ emotionalwarmth, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\emotionalwarmth.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ overprotection, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\overprotection.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ rejection, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\rejection.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ depression_everM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\depressionM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ depression_everF, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\depressionF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ anxiety_everM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\anxietyM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ anxiety_everF, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\anxietyF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ED_everM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\eatingdisorderM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ RSESm, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\selfesteemM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ cognitionMcat, contrasts = list(cognitionMcat="contr.treatment"(3, base = 3)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\cognitionM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ chronicdiseaseM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\chronicdiseaseM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ chronicdiseaseF, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\chronicdiseaseF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ BMI_Mcat, contrasts = list(BMI_Mcat="contr.treatment"(4, base = 2)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\bmiM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ BMI_Fcat, contrasts = list(BMI_Fcat="contr.treatment"(4, base = 3)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\bmiF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ LLDm, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\lldM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ LLDf, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\lldF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ delinguencyM, contrasts = list(delinguencyM="contr.treatment"(3, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\delinguencyM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ delinguencyF, contrasts = list(delinguencyF="contr.treatment"(3, base = 1)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\delinguencyP.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ friends, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\friendsM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ alcoholM, contrasts = list(alcoholM="contr.treatment"(3, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\alcoholM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ alcoholF, contrasts = list(alcoholF="contr.treatment"(3, base = 1)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\alcoholF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ smokingM, contrasts = list(smokingM="contr.treatment"(3, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\smokingM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ smokingF, contrasts = list(smokingF="contr.treatment"(3, base = 1)), subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\smokingF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ drugsM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\drugsM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ drugsF, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\drugsF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ sexpartnersM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\sexpartnersM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ sexpartnersF, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\sexpartnersF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ stdM, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\stdM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ stdF, subset = (partnerpart==1), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\stdF.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ agefirstsex, contrasts = list(agefirstsex="contr.treatment"(3, base = 3)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\agefirstsexM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ abortion, contrasts = list(abortion="contr.treatment"(2, base = 1)), family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\abortion.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+#################################################################################################
+########################### SENSITIVITY LOGISTIC REGRESSION ANALYSES ############################
+#################################################################################################
+model <- with(imputed.data2,  glm(planned ~ ageM, contrasts = list(ageM="contr.treatment"(5, base = 4)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ageMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ageF, contrasts = list(ageF="contr.treatment"(5, base = 4)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ageFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ethniM, contrasts = list(ethniM="contr.treatment"(10, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ethniMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ethniF, contrasts = list(ethniF="contr.treatment"(10, base = 1)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ethniFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ educM, contrasts = list(educM="contr.treatment"(4, base = 4)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\educMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ educP, contrasts = list(educP="contr.treatment"(4, base = 4)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\educPsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ jobM, contrasts = list(jobM="contr.treatment"(2, base = 2)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\NojobMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ jobF, contrasts = list(jobF="contr.treatment"(2, base = 2)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\NojobFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ income, contrasts = list(income="contr.treatment"(3, base = 3)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Incomesens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ financedif, contrasts = list(financedif="contr.treatment"(3, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Financedifsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ religionM, contrasts = list(religionM="contr.treatment"(5, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Religionsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ maritalstatus, contrasts = list(maritalstatus="contr.treatment"(3, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Maritalstatussens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ parity, contrasts = list(parity="contr.treatment"(4, base = 2)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\paritysens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ CTQ, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\CTQsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ emotionalwarmth, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\emotionalwarmthsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ overprotection, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\overprotectionsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ rejection, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\rejectionsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ depression_everM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\depressionMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ depression_everF, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\depressionFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ anxiety_everM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\anxietyMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ anxiety_everF, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\anxietyFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ ED_everM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\eatingdisorderMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ RSESm, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\selfesteemMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ cognitionMcat, contrasts = list(cognitionMcat="contr.treatment"(3, base = 3)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\cognitionMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ chronicdiseaseM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\chronicdiseaseMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ chronicdiseaseF, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\chronicdiseaseFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ BMI_Mcat, contrasts = list(BMI_Mcat="contr.treatment"(4, base = 2)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\bmiMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ BMI_Fcat, contrasts = list(BMI_Fcat="contr.treatment"(4, base = 3)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\bmiFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ LLDm, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\lldMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ LLDf, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\lldFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ delinguencyM, contrasts = list(delinguencyM="contr.treatment"(3, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\delinguencyMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ delinguencyF, contrasts = list(delinguencyF="contr.treatment"(3, base = 1)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\delinguencyPsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ friends, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\friendsMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ alcoholM, contrasts = list(alcoholM="contr.treatment"(3, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\alcoholMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ alcoholF, contrasts = list(alcoholF="contr.treatment"(3, base = 1)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\alcoholFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ smokingM, contrasts = list(smokingM="contr.treatment"(3, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\smokingMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ smokingF, contrasts = list(smokingF="contr.treatment"(3, base = 1)), subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\smokingFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ drugsM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\drugsMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ drugsF, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\drugsFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ sexpartnersM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\sexpartnersMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ sexpartnersF, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\sexpartnersFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ stdM, subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\stdMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ stdF, subset = sens==0 & partnerpart==1, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\stdFsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ agefirstsex, contrasts = list(agefirstsex="contr.treatment"(3, base = 3)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\agefirstsexMsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, glm(planned ~ abortion, contrasts = list(abortion="contr.treatment"(2, base = 1)), subset = sens==0, family = 'binomial'))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\abortionsens.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+#################################################################################################
+#################### MULTINOMIAL REGRESSION ANALYSES FEELINGS IN WOMEN ONLY #####################
+#################################################################################################
+library(nnet)
+library(devtools)
+
+model <- with(imputed.data2, multinom(feelings3~ ageM, contrasts = list(ageM="contr.treatment"(5, base = 4)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ageM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ ethniM, contrasts = list(ethniM="contr.treatment"(10, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\ethniM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ educM, contrasts = list(educM="contr.treatment"(4, base = 4)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\educM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ jobM, contrasts = list(jobM="contr.treatment"(2, base = 2)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\NojobM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ income, contrasts = list(income="contr.treatment"(3, base = 3)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Income.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ financedif, contrasts = list(financedif="contr.treatment"(3, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Financedif.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ religionM, contrasts = list(religionM="contr.treatment"(5, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Religion.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ maritalstatus, contrasts = list(maritalstatus="contr.treatment"(3, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\Maritalstatus.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ parity, contrasts = list(parity="contr.treatment"(4, base = 2)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\parity.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ CTQ, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\CTQ.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ emotionalwarmth, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\emotionalwarmth.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ overprotection, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\overprotection.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ rejection, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\rejection.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ depression_everM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\depressionM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ anxiety_everM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\anxietyM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ ED_everM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\eatingdisorderM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ RSESm, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\selfesteemM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ cognitionMcat, contrasts = list(cognitionMcat="contr.treatment"(3, base = 3)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\cognitionM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ chronicdiseaseM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\chronicdiseaseM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ BMI_Mcat, contrasts = list(BMI_Mcat="contr.treatment"(4, base = 2)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\bmiM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ LLDm, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\lldM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ delinguencyM, contrasts = list(delinguencyM="contr.treatment"(3, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\delinguencyM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ friends, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\friendsM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ alcoholM, contrasts = list(alcoholM="contr.treatment"(3, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\alcoholM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ smokingM, contrasts = list(smokingM="contr.treatment"(3, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\smokingM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ drugsM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\drugsM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ sexpartnersM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\sexpartnersM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ stdM, model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\stdM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ agefirstsex, contrasts = list(agefirstsex="contr.treatment"(3, base = 3)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\agefirstsexM.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+model <- with(imputed.data2, multinom(feelings3 ~ abortion, contrasts = list(abortion="contr.treatment"(2, base = 1)), model=T))
+x <- summary(pool(model), conf.int=T, exponentiate=T)
+outname<-paste("O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\abortion.txt", sep="/")
+write.table(x, outname, col.names=T,row.names=T, quote=F, sep="\t")
+
+##########################################################################################################
+########################## CLUSTER ANALYSES ##############################################################
+##########################################################################################################
+library("cluster") # Compute dissimilarities (distances) and perform agglomerative hierarchical clustering
+library("factoextra")
+library("pheatmap") # Create heatmaps
+library("Hmisc") #  cut2
+
+### WOMEN ###
+## only participants with UP ##
+#sub <- imp1[imp1$planned==1,] # n=2260
+sub <- df[df$planned==1,] # n=2260 
+sub2 <- sub[c("ageMconception", "ethniM", "religionM", "educM", "jobM", "income", 
+              "financedif", "maritalstatus", "parity", 
+             "CTQ", "emotionalwarmth", "overprotection", "rejection", "depression_everM", 
+             "anxiety_everM", "ED_everM", "RSESm", "cognitionM", "BMI_M",
+             "LLDm", "delinguencyM", "friends", "alcoholM", "smokingM", 
+             "drugsM", "sexpartnersM", "stdM", "agefirstsexcont","abortion")]
+delete.na <- function(DF, n=0) {DF[rowSums(is.na(DF)) <=n,]} 
+sub2 <- delete.na(sub2, 18) # number of NAs that each row may contain -> : n=2112 ipv 2260
+
+dismatrix <- daisy(sub2, metric = "gower") # Compute dissimilarities (distances)
+
+m <- c("average", "single", "complete", "ward")
+names(m) <- c("average", "single", "complete", "ward")
+ac <- function(x) {agnes(dismatrix, diss=T, method = x)$ac}
+sapply(m, ac) #ward has highest agglomerative coefficient (0.99) (describes the strength of the clustering structure, closer to 1 suggest a more balanced clustering structure
+
+# perform cluster analysis with ward's method #
+cluster <- agnes(dismatrix, diss=T, method = "ward") 
+
+library(fpc) # Cluster validation
+
+c_stats <- c("average.between", "average.within","avg.silwidth", "dunn2", "sindex")
+validation2 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 2)) 
+validation3 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 3)) 
+validation4 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 4)) 
+validation5 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 5)) 
+validation6 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 6)) 
+validation7 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 7)) 
+validation8 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 8)) 
+
+validation <- cbind("2" = validation2[names(validation2) %in% c_stats], "3" = validation3[names(validation3) %in% c_stats],
+                    "4" = validation4[names(validation4) %in% c_stats],"5" = validation5[names(validation5) %in% c_stats],
+                    "6" = validation6[names(validation6) %in% c_stats],"7" = validation7[names(validation7) %in% c_stats],
+                    "8" = validation8[names(validation8) %in% c_stats])
+
+sub2_num <- sub2
+sub2_num$ageMconception <- ifelse(sub2_num$ageMconception<25, 1, 0)
+sub2_num$ethniM <- ifelse(sub2_num$ethniM==1, 0, 1)
+sub2_num$religionM <- ifelse(sub2_num$religionM==0, 0, 1)
+sub2_num$educM <- ifelse(sub2_num$educM==1 | sub2_num$educM==2, 1, 0)
+sub2_num$income <- ifelse(sub2_num$income==1 | sub2_num$income==2, 1, 0)
+levels(sub2_num$jobM) <- c(1,0)
+sub2_num$financedif <- ifelse(sub2_num$financedif==3 | sub2_num$financedif==2, 1, 0)
+sub2_num$maritalstatus <- ifelse(sub2_num$maritalstatus==1 | sub2_num$maritalstatus==2, 0, 1)
+sub2_num$parity <- ifelse(sub2_num$parity==1 | sub2_num$parity==0, 0, 1)
+sub2_num$CTQ <- cut2(sub2_num$CTQ, g=4)
+levels(sub2_num$CTQ) <- c(0,0,0,1)
+sub2_num$emotionalwarmth <- cut2(sub2_num$emotionalwarmth, g=4)
+levels(sub2_num$emotionalwarmth) <- c(1,0,0,0)
+sub2_num$overprotection <- cut2(sub2_num$overprotection, g=4)
+levels(sub2_num$overprotection) <- c(0,0,0,1)
+sub2_num$rejection <- cut2(sub2_num$rejection, g=4)
+levels(sub2_num$rejection) <- c(0,0,0,1)
+sub2_num$RSESm <- cut2(sub2_num$RSESm, g=4)
+levels(sub2_num$RSESm) <- c(1,0,0,0)
+sub2_num$cognitionM <- cut2(sub2_num$cognitionM, 85)
+levels(sub2_num$cognitionM) <- c(1,0)
+sub2_num$BMI_M <- cut2(sub2_num$BMI_M, 25)
+levels(sub2_num$BMI_M) <- c(1,0)
+sub2_num$LLDm <- cut2(sub2_num$LLDm, g=4)
+levels(sub2_num$LLDm)<- c(0,0,0,1)
+sub2_num$delinguencyM <- ifelse(sub2_num$delinguencyM==3 | sub2_num$delinguencyM==2, 1, 0)
+sub2_num$alcoholM <- ifelse(sub2_num$alcoholM==1, 0, 1)
+sub2_num$smokingM <- ifelse(sub2_num$smokingM==1, 0, 1)
+sub2_num$agefirstsexcont <- ifelse(sub2_num$agefirstsexcont<16, 1, 0)
+i <- c(1:29)
+sub2_num[,i] <- apply(sub2_num[,i], 2,
+                      function(x) as.numeric(as.character(x)))
+
+colnames(sub2_num) <- c("Age <25 yrs", "Migration background, yes", "Religion, yes", "Education, lower", "Job, no", "Income, lower", 
+                        "Financial difficulties, higher", "Marital status, single", "Parity, >1", 
+                        "Childhood trauma, highest 25%", "Emotional warmth, lowest 25%", "Overprotection, highest 25%", "Rejection, highest 25%", 
+                        "History of depression, yes",  "History of anxiety, yes", "History of eating disorders, yes", "Self-esteem, lowest 25%", "Cognition, IQ <85", 
+                        "BMI, <25",
+                        "Relational difficulties, highest 25%", "Delinguency, petty/serious crimes",  "<2 close friends", 
+                        "Alcohol use, >1 glass/wk", "Smoking, yes", "Drugs use, yes",
+                        ">1 sexual partner", "History of STD treatment", "Age first sexual contact <16 yrs", "Abortion, yes")
+
+hcluster <- as.hclust(cluster) # make it a hclust object
+group <- as.data.frame(cutree(hcluster, k = 4)) # create clustergroups
+colnames(group) <- c("Cluster")
+group$Cluster <- ifelse(group$Cluster==1, "Cluster 1", ifelse(group$Cluster==2, "Cluster 2", ifelse(group$Cluster==3, "Cluster 3", "Cluster 4")))
+
+# Create heatmap #
+pdf("Heatmap4clusters_women_no_imp_clusteredcolumns.pdf", width= 6, height = 6)
+pheatmap(sub2_num, cluster_rows = hcluster, cutree_rows = 4, color = c("white", "black"), na_col = "grey",
+         annotation_row = group, show_rownames = F, legend = F, cluster_cols = T)
+dev.off()
+
+sub2$clusterID <- group$Cluster
+my_controls <- tableby.control(test=T, total=F, numeric.test= "kwt", cat.test= "chisq", numeric.stats = c("meansd"),
+                               cat.stats = c("countpct"), digits = 2L, stats.labels = list(meansd= "Mean (SD)"))
+table_cluster <- tableby(clusterID ~ ., data= sub2, control = my_controls)
+summary(table_cluster)
+write2word(table_cluster, "table4clusters_nov2021women_no_imp.docx") 
+
+## create histograms and boxplots ##
+
+My_Theme = theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_text(size=12, colour = 'black', face = "bold"),
+  axis.text.x = element_text(size=11, colour = 'black',  face = "bold"),
+  axis.text.y = element_text(size=12, colour = 'black',  face = "bold"),
+  axis.line = element_line(colour="black", size = 0.5, linetype = "solid"),
+  panel.border = element_blank(),
+  panel.grid.major = element_line(colour = 'white'),
+  panel.grid.minor = element_line(colour = 'white'),
+  panel.background = element_blank(),
+  legend.position = 'top')
+
+safe_colorblind_palette <- c("#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499", "#88CCEE", 
+                             "#44AA99", "#999933","#661100", "#888888")
+
+fig1 <- ggplot(data=sub2, aes(clusterID, ageMconception)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Age (years)") 
+fig1
+x <- table(sub2$clusterID, sub2$ethniM)
+tab2 <- as.data.frame(prop.table(x,1))
+tab2$Var3 <- ifelse(tab2$Var2==1, 'Dutch', ifelse(tab2$Var2==2, 'Indonesian', ifelse(tab2$Var2==3, 'Cape Verdian', 
+                            ifelse(tab2$Var2==4, 'Moroccan', ifelse(tab2$Var2==5, 'Dutch Antilles', ifelse(tab2$Var2==6, 'Surinamese', 
+                            ifelse(tab2$Var2==7, 'Turkisch', ifelse(tab2$Var2==8, 'European', ifelse(tab2$Var2==9, 'Asian', ifelse(tab2$Var2==10, 'Other', NA))))))))))
+tab2$Var3 <- factor(tab2$Var3, levels = c('Dutch','Cape Verdian','Dutch Antilles','Surinamese','Moroccan','Turkisch','Indonesian','Asian','European','Other'))
+fig2 <- ggplot(tab2,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Ethnic background (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig2
+x <- table(sub2$clusterID, sub2$religionM)
+tab3 <- as.data.frame(prop.table(x,1))
+tab3$Var3 <- ifelse(tab3$Var2==0, 'No religion', ifelse(tab3$Var2==1, 'Christian', ifelse(tab3$Var2==2, 'Hindustan', 
+             ifelse(tab3$Var2==3, 'Islamic', ifelse(tab3$Var2==4, 'Other', NA)))))
+fig3 <- ggplot(tab3,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Religion (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig3
+x <- table(sub2$clusterID, sub2$educM)
+tab4 <- as.data.frame(prop.table(x,1))
+tab4$Var3 <- ifelse(tab4$Var2==1, 'Low', ifelse(tab4$Var2==2, 'Mid-low', 
+             ifelse(tab4$Var2==3, 'Mid-high', ifelse(tab4$Var2==4, 'High', NA))))
+tab4$Var3 <- factor(tab4$Var3, levels = c('Low','Mid-low', 'Mid-high', 'High'))
+fig4 <- ggplot(tab4,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Education (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig4
+x <- table(sub2$clusterID, sub2$jobM)
+tab5 <- as.data.frame(prop.table(x,1))
+tab5$Var3 <- ifelse(tab5$Var2==0, 'No', ifelse(tab5$Var2==1, 'Yes', NA))
+fig5 <- ggplot(tab5,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Job (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig5
+x <- table(sub2$clusterID, sub2$income)
+tab6 <- as.data.frame(prop.table(x,1))
+tab6$Var3 <- ifelse(tab6$Var2==1, 'Low', ifelse(tab6$Var2==2, 'Medium', 
+             ifelse(tab6$Var2==3, 'High',  NA)))
+fig6 <- ggplot(tab6,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Income (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig6
+x <- table(sub2$clusterID, sub2$financedif)
+tab7 <- as.data.frame(prop.table(x,1))
+tab7$Var3 <- ifelse(tab7$Var2==1, 'No', ifelse(tab7$Var2==2, 'Some', 
+             ifelse(tab7$Var2==3, 'Great', NA)))
+tab7$Var3 <- factor(tab7$Var3, levels = c('No','Some', 'Great'))
+fig7 <- ggplot(tab7,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Financial difficulties (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig7
+x <- table(sub2$clusterID, sub2$maritalstatus)
+tab8 <- as.data.frame(prop.table(x,1))
+tab8$Var3 <- ifelse(tab8$Var2==1, 'Married', ifelse(tab8$Var2==2, 'Cohabiting', 
+             ifelse(tab8$Var2==3, 'Single', NA)))
+tab8$Var3 <- factor(tab8$Var3, levels = c('Single','Cohabiting', 'Married'))
+fig8 <- ggplot(tab8,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Marital status (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig8
+x <- table(sub2$clusterID, sub2$parity)
+tab9 <- as.data.frame(prop.table(x,1))
+tab9$Var3 <- ifelse(tab9$Var2==0, '0', ifelse(tab9$Var2==1, '1', 
+             ifelse(tab9$Var2==2, '2', ifelse(tab9$Var2==3, '3 or more', NA))))
+fig9 <- ggplot(tab9,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Parity (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig9
+fig10 <- ggplot(data=sub2, aes(clusterID, CTQ)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Childhood Trauma (sd)") 
+fig10
+fig11 <- ggplot(data=sub2, aes(clusterID, emotionalwarmth)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Perceived parental emotional warmth (sd)") + ylim(-1.5,1)
+fig11
+fig12 <- ggplot(data=sub2, aes(clusterID, overprotection)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Perceived parental overprotection (sd)")
+fig12
+fig13 <- ggplot(data=sub2, aes(clusterID, rejection)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Perceived parental rejection (sd)") + ylim(-1,5)
+fig13
+x <- table(sub2$clusterID, sub2$depression_everM)
+tab14 <- as.data.frame(prop.table(x,1))
+tab14$Var3 <- ifelse(tab14$Var2==0, 'No', ifelse(tab14$Var2==1, 'Yes', NA))
+fig14 <- ggplot(tab14,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of depression (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig14
+x <- table(sub2$clusterID, sub2$anxiety_everM)
+tab15 <- as.data.frame(prop.table(x,1))
+tab15$Var3 <- ifelse(tab15$Var2==0, 'No', ifelse(tab15$Var2==1, 'Yes', NA))
+fig15 <- ggplot(tab15,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of anxiety (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig15
+x <- table(sub2$clusterID, sub2$ED_everM)
+tab16 <- as.data.frame(prop.table(x,1))
+tab16$Var3 <- ifelse(tab16$Var2==0, 'No', ifelse(tab16$Var2==1, 'Yes', NA))
+fig16 <- ggplot(tab16,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of eating disorders (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig16
+fig17 <- ggplot(data=sub2, aes(clusterID, RSESm)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Self-esteem (sd)") + ylim(-4,1.5)
+fig17
+fig18 <- ggplot(data=sub2, aes(clusterID, cognitionM)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Cognitive ability (IQ)")
+fig18
+fig19 <- ggplot(data=sub2, aes(clusterID, BMI_M)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("BMI") + ylim(15,45)
+fig19
+fig20 <- ggplot(data=sub2, aes(clusterID, LLDm)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Relational difficulties (sd)") + ylim(-1,6)
+fig20
+x <- table(sub2$clusterID, sub2$delinguencyM)
+tab21 <- as.data.frame(prop.table(x,1))
+tab21$Var3 <- ifelse(tab21$Var2==1, 'No crimes', ifelse(tab21$Var2==2, 'Petty crimes', 
+             ifelse(tab21$Var2==3, 'Serious crimes', NA)))
+fig21 <- ggplot(tab21,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Delinquency (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig21
+x <- table(sub2$clusterID, sub2$friends)
+tab22 <- as.data.frame(prop.table(x,1))
+tab22$Var3 <- ifelse(tab22$Var2==1, '1 or less', ifelse(tab22$Var2==0, '2 and more', NA))
+fig22 <- ggplot(tab22,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Number of close friends (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig22
+x <- table(sub2$clusterID, sub2$alcoholM)
+tab23 <- as.data.frame(prop.table(x,1))
+tab23$Var3 <- ifelse(tab23$Var2==1, '<1 glass/week', ifelse(tab23$Var2==2, '1-6 glasses/week', 
+            ifelse(tab23$Var2==3, '1 glass/day or more', NA)))
+fig23 <- ggplot(tab23,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Alcohol intake (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig23
+x <- table(sub2$clusterID, sub2$smokingM)
+tab24 <- as.data.frame(prop.table(x,1))
+tab24$Var3 <- ifelse(tab24$Var2==1, 'No', ifelse(tab24$Var2==2, '<5 cigarettes/day', 
+              ifelse(tab24$Var2==3, '5 cigarettes/day or more', NA)))
+tab24$Var3 <- factor(tab24$Var3, levels = c('No','<5 cigarettes/day', '5 cigarettes/day or more'))
+fig24 <- ggplot(tab24,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Smoking (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig24
+x <- table(sub2$clusterID, sub2$drugsM)
+tab25 <- as.data.frame(prop.table(x,1))
+tab25$Var3 <- ifelse(tab25$Var2==0, 'No', ifelse(tab25$Var2==1, 'Yes', NA))
+fig25 <- ggplot(tab25,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Drug use (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig25
+x <- table(sub2$clusterID, sub2$sexpartnersM)
+tab26 <- as.data.frame(prop.table(x,1))
+tab26$Var3 <- ifelse(tab26$Var2==0, '1', ifelse(tab26$Var2==1, 'More than 1', NA))
+fig26 <- ggplot(tab26,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Sexual partners in the last year (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig26
+x <- table(sub2$clusterID, sub2$stdM)
+tab27 <- as.data.frame(prop.table(x,1))
+tab27$Var3 <- ifelse(tab27$Var2==0, 'No', ifelse(tab27$Var2==1, 'Yes', NA))
+fig27 <- ggplot(tab27,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of treatment for STD (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig27
+fig28 <- ggplot(data=sub2, aes(clusterID, agefirstsexcont)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Age of first sexual contact (years)") + ylim(10,30)
+fig28
+x <- table(sub2$clusterID, sub2$abortion)
+tab29 <- as.data.frame(prop.table(x,1))
+tab29$Var3 <- ifelse(tab29$Var2==0, 'No', ifelse(tab29$Var2==1, 'Yes', NA))
+fig29 <- ggplot(tab29,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of induced abortion (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig29
+
+library(gridExtra)
+plot_women <- grid.arrange(fig1, fig10, fig11, fig12, fig13, fig17, fig18, fig19, fig20, fig28, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9,  fig14, fig15, fig16, 
+                            fig21, fig22, fig23, fig24, fig25, fig26, fig27,  fig29, ncol = 5, nrow = 6)
+tiff(filename = "O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\clusters_women5.tif",
+     width = 30, height = 30, units = "in", pointsize = 10, compression = "lzw",bg = "white", res = 600, type = "windows")
+grid.arrange(plot_women,ncol=1,clip=FALSE)
+grid.rect(width = 1, height = 1, gp = gpar(lwd=1, col="black", fill=NA))
+dev.off()
+
+### MEN ###
+## only participants with UP ##
+#sub <- imp1[imp1$planned==1,] # n=2260
+sub <- df[df$planned==1 & df$partnerpart==1,] # n=1280 
+sub2 <- sub[c("ageFconception", "ethniF", "educP", "jobF", 
+              "depression_everF", "anxiety_everF", "BMI_F",
+              "LLDf", "delinguencyF", "alcoholF", "smokingF", 
+              "drugsF", "sexpartnersF", "stdF")]
+delete.na <- function(DF, n=0) {DF[rowSums(is.na(DF)) <=n,]} 
+sub2 <- delete.na(sub2, 6) # number of NAs that each row may contain -> : n=1090 ipv 1280
+
+dismatrix <- daisy(sub2, metric = "gower") # Compute dissimilarities (distances)
+
+m <- c("average", "single", "complete", "ward")
+names(m) <- c("average", "single", "complete", "ward")
+ac <- function(x) {agnes(dismatrix, diss=T, method = x)$ac}
+sapply(m, ac) #ward has highest agglomerative coefficient (0.99) (describes the strength of the clustering structure, closer to 1 suggest a more balanced clustering structure
+
+# perform cluster analysis with ward's method #
+cluster <- agnes(dismatrix, diss=T, method = "ward") 
+
+library(fpc) # Cluster validation
+
+c_stats <- c("average.between", "average.within","avg.silwidth", "dunn2", "sindex")
+validation2 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 2)) 
+validation3 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 3)) 
+validation4 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 4)) 
+validation5 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 5)) 
+validation6 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 6)) 
+validation7 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 7)) 
+validation8 <- cluster.stats(d = dismatrix, clustering = cutree(cluster, k = 8)) 
+
+validation <- cbind("2" = validation2[names(validation2) %in% c_stats], "3" = validation3[names(validation3) %in% c_stats],
+                    "4" = validation4[names(validation4) %in% c_stats],"5" = validation5[names(validation5) %in% c_stats],
+                    "6" = validation6[names(validation6) %in% c_stats],"7" = validation7[names(validation7) %in% c_stats],
+                    "8" = validation8[names(validation8) %in% c_stats])
+
+sub2_num <- sub2
+sub2_num$ageFconception <- ifelse(sub2_num$ageFconception<25, 1, 0)
+sub2_num$ethniF <- ifelse(sub2_num$ethniF==1, 0, 1)
+sub2_num$educP <- ifelse(sub2_num$educP==1 | sub2_num$educP==2, 1, 0)
+levels(sub2_num$jobF) <- c(1,0)
+sub2_num$BMI_F <- cut2(sub2_num$BMI_F, 25)
+levels(sub2_num$BMI_F) <- c(1,0)
+sub2_num$LLDf <- cut2(sub2_num$LLDf, g=4)
+levels(sub2_num$LLDf)<- c(0,0,0,1)
+sub2_num$delinguencyF <- ifelse(sub2_num$delinguencyF==3 | sub2_num$delinguencyF==2, 1, 0)
+sub2_num$alcoholF <- ifelse(sub2_num$alcoholF==1, 0, 1)
+sub2_num$smokingF <- ifelse(sub2_num$smokingF==1, 0, 1)
+i <- c(1:14)
+sub2_num[,i] <- apply(sub2_num[,i], 2,
+                      function(x) as.numeric(as.character(x)))
+
+colnames(sub2_num) <- c("Age <25 yrs", "Migration background, yes", "Education, lower", "Job, no", "History of depression, yes",  "History of anxiety, yes", "BMI, <25",
+                         "Relational difficulties, highest 25%", "Delinguency, petty/serious crimes",  
+                        "Alcohol use, >1 glass/wk", "Smoking, yes", "Drugs use, yes",
+                        ">1 sexual partner", "History of STD treatment")
+
+hcluster <- as.hclust(cluster) # make it a hclust object
+group <- as.data.frame(cutree(hcluster, k = 4)) # create clustergroups
+colnames(group) <- c("Cluster")
+group$Cluster <- ifelse(group$Cluster==1, "Cluster 1", ifelse(group$Cluster==2, "Cluster 2", ifelse(group$Cluster==3, "Cluster 3", "Cluster 4")))
+
+# Create heatmap #
+pdf("Heatmap4clusters_men_no_imp.pdf", width= 6, height = 6)
+pheatmap(sub2_num, cluster_rows = hcluster, cutree_rows = 4, color = c("white", "black"), na_col = "grey",
+         annotation_row = group, show_rownames = F, legend = F, cluster_cols = F)
+dev.off()
+
+pdf("Heatmap3clusters_men_no_imp_clusteredcolumns.pdf", width= 6, height = 6)
+pheatmap(sub2_num, cluster_rows = hcluster, cutree_rows = 3, color = c("white", "black"), na_col = "grey",
+         annotation_row = group, show_rownames = F, legend = F, cluster_cols = T)
+dev.off()
+
+sub2$clusterID <- group$Cluster
+my_controls <- tableby.control(test=T, total=F, numeric.test= "kwt", cat.test= "chisq", numeric.stats = c("meansd"),
+                               cat.stats = c("countpct"), digits = 2L, stats.labels = list(meansd= "Mean (SD)"))
+table_cluster <- tableby(clusterID ~ ., data= sub2, control = my_controls)
+summary(table_cluster)
+write2word(table_cluster, "table4clusters_nov2021men_no_imp.docx") 
+
+## create histograms and boxplots ##
+
+My_Theme = theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_text(size=12, colour = 'black', face = "bold"),
+  axis.text.x = element_text(size=11, colour = 'black',  face = "bold"),
+  axis.text.y = element_text(size=12, colour = 'black',  face = "bold"),
+  axis.line = element_line(colour="black", size = 0.5, linetype = "solid"),
+  panel.border = element_blank(),
+  panel.grid.major = element_line(colour = 'white'),
+  panel.grid.minor = element_line(colour = 'white'),
+  panel.background = element_blank(),
+  legend.position = 'top')
+
+safe_colorblind_palette <- c("#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499", "#88CCEE", 
+                             "#44AA99", "#999933","#661100", "#888888")
+
+fig1 <- ggplot(data=sub2, aes(clusterID, ageFconception)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Age (years)") 
+fig1
+x <- table(sub2$clusterID, sub2$ethniF)
+tab2 <- as.data.frame(prop.table(x,1))
+tab2$Var3 <- ifelse(tab2$Var2==1, 'Dutch', ifelse(tab2$Var2==2, 'Indonesian', ifelse(tab2$Var2==3, 'Cape Verdian', 
+             ifelse(tab2$Var2==4, 'Moroccan', ifelse(tab2$Var2==5, 'Dutch Antilles', ifelse(tab2$Var2==6, 'Surinamese', 
+             ifelse(tab2$Var2==7, 'Turkisch', ifelse(tab2$Var2==8, 'European', ifelse(tab2$Var2==9, 'Asian', ifelse(tab2$Var2==10, 'Other', NA))))))))))
+tab2$Var3 <- factor(tab2$Var3, levels = c('Dutch','Cape Verdian','Dutch Antilles','Surinamese','Moroccan','Turkisch','Indonesian','Asian','European','Other'))
+fig2 <- ggplot(tab2,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Ethnic background (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig2
+x <- table(sub2$clusterID, sub2$educP)
+tab4 <- as.data.frame(prop.table(x,1))
+tab4$Var3 <- ifelse(tab4$Var2==1, 'Low', ifelse(tab4$Var2==2, 'Mid-low', 
+                                                ifelse(tab4$Var2==3, 'Mid-high', ifelse(tab4$Var2==4, 'High', NA))))
+tab4$Var3 <- factor(tab4$Var3, levels = c('Low','Mid-low', 'Mid-high', 'High'))
+fig4 <- ggplot(tab4,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Education (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig4
+x <- table(sub2$clusterID, sub2$jobF)
+tab5 <- as.data.frame(prop.table(x,1))
+tab5$Var3 <- ifelse(tab5$Var2==0, 'No', ifelse(tab5$Var2==1, 'Yes', NA))
+fig5 <- ggplot(tab5,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Job (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig5
+x <- table(sub2$clusterID, sub2$depression_everF)
+tab14 <- as.data.frame(prop.table(x,1))
+tab14$Var3 <- ifelse(tab14$Var2==0, 'No', ifelse(tab14$Var2==1, 'Yes', NA))
+fig14 <- ggplot(tab14,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of depression (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig14
+x <- table(sub2$clusterID, sub2$anxiety_everF)
+tab15 <- as.data.frame(prop.table(x,1))
+tab15$Var3 <- ifelse(tab15$Var2==0, 'No', ifelse(tab15$Var2==1, 'Yes', NA))
+fig15 <- ggplot(tab15,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of anxiety (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig15
+fig19 <- ggplot(data=sub2, aes(clusterID, BMI_F)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("BMI")
+fig19
+fig20 <- ggplot(data=sub2, aes(clusterID, LLDf)) + geom_boxplot(fill="#6699CC", outlier.size = 0.5) + My_Theme + ylab("Relational difficulties (sd)") 
+fig20
+x <- table(sub2$clusterID, sub2$delinguencyF)
+tab21 <- as.data.frame(prop.table(x,1))
+tab21$Var3 <- ifelse(tab21$Var2==1, 'No crimes', ifelse(tab21$Var2==2, 'Petty crimes', 
+                                                        ifelse(tab21$Var2==3, 'Serious crimes', NA)))
+fig21 <- ggplot(tab21,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Delinquency (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig21
+x <- table(sub2$clusterID, sub2$alcoholF)
+tab23 <- as.data.frame(prop.table(x,1))
+tab23$Var3 <- ifelse(tab23$Var2==1, '<1 glass/week', ifelse(tab23$Var2==2, '1-6 glasses/week', 
+                                                            ifelse(tab23$Var2==3, '1 glass/day or more', NA)))
+fig23 <- ggplot(tab23,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Alcohol intake (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig23
+x <- table(sub2$clusterID, sub2$smokingF)
+tab24 <- as.data.frame(prop.table(x,1))
+tab24$Var3 <- ifelse(tab24$Var2==1, 'No', ifelse(tab24$Var2==2, '<5 cigarettes/day', 
+                                                 ifelse(tab24$Var2==3, '5 cigarettes/day or more', NA)))
+tab24$Var3 <- factor(tab24$Var3, levels = c('No','<5 cigarettes/day', '5 cigarettes/day or more'))
+fig24 <- ggplot(tab24,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Smoking (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig24
+x <- table(sub2$clusterID, sub2$drugsF)
+tab25 <- as.data.frame(prop.table(x,1))
+tab25$Var3 <- ifelse(tab25$Var2==0, 'No', ifelse(tab25$Var2==1, 'Yes', NA))
+fig25 <- ggplot(tab25,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Drug use (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig25
+x <- table(sub2$clusterID, sub2$sexpartnersF)
+tab26 <- as.data.frame(prop.table(x,1))
+tab26$Var3 <- ifelse(tab26$Var2==0, '1', ifelse(tab26$Var2==1, 'More than 1', NA))
+fig26 <- ggplot(tab26,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("Sexual partners in the last year (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig26
+x <- table(sub2$clusterID, sub2$stdF)
+tab27 <- as.data.frame(prop.table(x,1))
+tab27$Var3 <- ifelse(tab27$Var2==0, 'No', ifelse(tab27$Var2==1, 'Yes', NA))
+fig27 <- ggplot(tab27,aes(x=Var1,y=Freq*100,fill=Var3)) + geom_col() + My_Theme + ylab("History of treatment for STD (%)") + labs(fill=element_blank()) + scale_fill_manual(values=safe_colorblind_palette)
+fig27
+
+library(gridExtra)
+plot_men <- grid.arrange(fig1, fig19, fig20,  fig2, fig4, fig5, fig14, fig15, fig21, fig23, fig24, fig25, fig26, fig27, ncol = 4, nrow = 4)
+tiff(filename = "O:\\medewerkers\\227021 Enthoven, C.A\\Postdoc\\Riskfactors\\clusters_men5.tif",
+     width = 25, height = 20.8, units = "in", pointsize = 10, compression = "lzw",bg = "white", res = 600, type = "windows")
+grid.arrange(plot_men,ncol=1,clip=FALSE)
+grid.rect(width = 1, height = 1, gp = gpar(lwd=1, col="black", fill=NA))
+dev.off()
